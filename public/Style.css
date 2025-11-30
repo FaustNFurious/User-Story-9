@@ -36,6 +36,17 @@ main {
 /* Il footer usa mt-auto di Bootstrap per posizionamento automatico */
 
 
+/* Navbar effects */
+.nav-link:hover {
+    color: green !important;
+}
+
+/* Link attivo basato su aria-current */
+.nav-link[aria-current="page"] {
+    color: green !important;
+    font-weight: bold;
+}
+
 /* Stile per il dropdown del logout */
 .dropdown-item form button {
     background: none; 

@@ -15,14 +15,42 @@
             <!-- Left side links -->
             <ul class="navbar-nav me-auto">
 
+                <li class="nav-item">
+                    <a class="nav-link text-white" @if(request()->routeIs('article.index')) aria-current="page" @endif
+                        href="{{ route('article.index') }}">Tutti gli Articoli
+                    </a>
+                </li>
+
                 <!-- Only visible to authenticated users -->
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('article.create') }}">Crea Articolo</a>
+                        <a class="nav-link text-white" @if(request()->routeIs('article.create')) aria-current="page" @endif
+                           href="{{ route('article.create') }}">Crea Articolo
+                        </a>
                     </li>
                 @endauth
 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-list"></i> Categorie
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach($categories as $category)
+                            <li>
+                                <a class="dropdown-item" @if(request()->is('articles/category/' . $category->id)) aria-current="page" @endif
+                                    href="{{ route('article.byCategory', ['category' => $category->id]) }}">{{ $category->name }}
+                                </a>
+                            </li>
+                            <!-- Stiamo utilizzando !$loop->last per inserire il divisore del dropdown in ogni iterazione del ciclo tranne l’ultima. -->
+                            @if(!$loop->last)
+                                <hr class="dropdown-divider">
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+
             </ul>
+
 
             
             <!-- Right side authentication -->
@@ -35,7 +63,8 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li>
-                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                <a class="dropdown-item" @if(request()->routeIs('dashboard')) aria-current="page" @endif
+                                    href="{{ route('dashboard') }}">
                                     <i class="bi bi-speedometer2"></i> Dashboard
                                 </a>
                             </li>
@@ -53,12 +82,14 @@
                 @else
                     <!-- User not logged in -->
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('login') }}">
+                        <a class="nav-link text-white" @if(request()->routeIs('login')) aria-current="page" @endif
+                            href="{{ route('login') }}">
                             <i class="bi bi-box-arrow-in-right"></i> Login
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('register') }}">
+                        <a class="nav-link text-white" @if(request()->routeIs('register')) aria-current="page" @endif
+                            href="{{ route('register') }}">
                             <i class="bi bi-person-plus"></i> Registrati
                         </a>
                     </li>
