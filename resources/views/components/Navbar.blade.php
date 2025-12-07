@@ -13,6 +13,7 @@
 
         <!-- Navigation links -->
         <div class="collapse navbar-collapse" id="navbarNav">
+
             <!-- Left side links -->
             <ul class="navbar-nav me-auto">
 
@@ -106,6 +107,12 @@
                         </a>
                     </li>
                 @endauth
+
+                <form action="{{ route('article.search') }}" method="GET" class="d-flex ms-auto" role="search">
+                    <!-- Per far sì che Scout funzioni, il name associato all’input deve essere necessariamente query -->
+                    <input type="search" name="query" class="form-control me-2" placeholder="Cerca articoli..." aria-label="Search">
+                    <button type="submit" class="btn btn-outline-info">Cerca</button>
+                </form>
             </ul>
         </div>
     </div>

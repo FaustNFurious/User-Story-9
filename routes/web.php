@@ -40,3 +40,7 @@ Route::patch('/revisor/reject/article/{article}', [RevisorController::class, 're
 /* Rotta richiesta per diventare revisore */
 Route::get('/revisor/request', [RevisorController::class, 'requestRevisor'])->middleware('auth')->name('revisor.request');
 Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
+
+
+/* Rotta per effettuare una ricerca */
+Route::get('/search', [PublicController::class, 'search'])->name('article.search');
