@@ -5,7 +5,7 @@
 
         <div class="row justify-content-center align-items-center my-5">
             <div class="col-12 text-center">
-                <h2 class="display-3 text-light">Tutti gli Articoli</h2>
+                <h2 class="display-3 text-light">{{ __('ui.all_articles') }}</h2>
             </div>
         </div>
 
@@ -16,7 +16,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <h4 class="text-center text-light">Nessun articolo ancora inserito.</h4>
+                    <h4 class="text-center text-light">{{ __('ui.no_articles_created') }}</h4>
                 </div>
             @endforelse
         </div>
@@ -30,5 +30,6 @@
         </div>
 
     </div>
+    
 
 </x-Layout>

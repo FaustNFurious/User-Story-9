@@ -5,7 +5,7 @@
 
         <div class="row justify-content-center align-items-center my-5">
             <div class="col-12 text-center">
-                <h3 class="display-2 text-light">Dettagli di: {{ $article->title }}</h3>
+                <h3 class="display-2 text-light">{{ __('ui.details_of_article') }}: {{ $article->title }}</h3>
             </div>
         </div>
 
@@ -38,9 +38,9 @@
 
         <div class="row justify-content-center align-items-center my-5">
             <div class="col-12 col-md-8 text-center text-light">
-                <h4 class="display-5">Titolo: {{ $article->title }}</h4>
-                <h6>Prezzo: {{ $article->price }} €</h6>
-                <p class="mt-4">Descrizione: {{ $article->description }}</p>
+                <h4 class="display-5">{{ __('ui.title') }}: {{ $article->title }}</h4>
+                <h6>{{ __('ui.price') }}: {{ $article->price }} €</h6>
+                <p class="mt-4">{{ __('ui.description') }}: {{ $article->description }}</p>
             </div>
         </div>
 

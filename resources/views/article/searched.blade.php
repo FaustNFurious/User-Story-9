@@ -5,7 +5,7 @@
 
         <div class="row my-5 justify-content-center align-items-center">
             <div class="col-12 text-center">
-                <h3 class="display-3 text-light">Risultati della ricerca per: "{{ $query }}"</h3>
+                <h3 class="display-3 text-light">{{ __('ui.results_research_for') }}: "{{ $query }}"</h3>
             </div>
         </div>
 
@@ -16,7 +16,7 @@
                 </div>
             @empty
                 <div class="col-12 text-center">
-                    <h4 class="text-light">Nessun articolo trovato in base alla tua ricerca.</h4>
+                    <h4 class="text-light">{{ __('ui.no_articles_found_by_search') }}</h4>
                 </div>
             @endforelse
         </div>

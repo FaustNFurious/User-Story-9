@@ -12,8 +12,8 @@
 
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-12 text-center my-5">
-                <h1 class="display-2 text-light">Benvenuto nella UserStory</h1>
-                <p class="display-6 lead text-light">Condividi i tuoi articoli e leggi quelli degli altri utenti!</p>
+                <h1 class="display-2 text-light">{{ __('ui.welcome_to_the_User_Story') }}</h1>
+                <p class="display-6 lead text-light">{{ __('ui.share_read_articles') }}</p>
             </div>
         </div>
 
@@ -24,7 +24,7 @@
                 </div>
             @empty
                 <div class="col-12">
-                    <h2 class="text-center">Nessun articolo ancora inserito</h2>
+                    <h2 class="text-center">{{ __('ui.no_articles_created') }}</h2>
                 </div>
             @endforelse
         </div>

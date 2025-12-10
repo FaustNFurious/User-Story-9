@@ -11,7 +11,7 @@
 
         <div class="row my-5 justify-content-center align-items-center">
             <div class="col-12 text-center">
-                <h3 class="display-2 text-light">Dashboard Revisore</h3>
+                <h3 class="display-2 text-light">{{ __('ui.dashboard_revisor') }}</h3>
             </div>
         </div>
 
@@ -33,10 +33,10 @@
 
                     <div class="mb-4 text-light">
                         <h2 class="mb-3">{{ $article_to_check->title }}</h2>
-                        <h4 class="mb-3">Autore: {{ $article_to_check->user->name }}</h4>
-                        <p class="mb-3">Prezzo: {{ $article_to_check->price }} €</p>
-                        <h4 class="mb-3">Categoria: {{ $article_to_check->category->name }}</h4>
-                        <p class="mb-3">Descrizione: {{ $article_to_check->description }}</p>
+                        <h4 class="mb-3">{{ __('ui.author') }}: {{ $article_to_check->user->name }}</h4>
+                        <p class="mb-3">{{ __('ui.price') }}: {{ $article_to_check->price }} €</p>
+                        <h4 class="mb-3">{{ __('ui.category') }}: {{ $article_to_check->category->name }}</h4>
+                        <p class="mb-3">{{ __('ui.description') }}: {{ $article_to_check->description }}</p>
                     </div>
 
                     <!-- Form Accetta e Rifiuta articolo -->
@@ -44,13 +44,13 @@
                         <form action="{{ route('revisor.acceptArticle', ['article' => $article_to_check]) }}" method="POST" class="me-2">
                             @csrf
                             @method('PATCH')
-                            <button type="submit" class="btn btn-success btn-lg w-100">Accetta</button>
+                            <button type="submit" class="btn btn-success btn-lg w-100">{{ __('ui.accept') }}</button>
                         </form>
 
                         <form action="{{ route('revisor.rejectArticle', ['article' => $article_to_check]) }}" method="POST" class="ms-2">
                             @csrf
                             @method('PATCH')
-                            <button type="submit" class="btn btn-danger btn-lg w-100">Rifiuta</button>
+                            <button type="submit" class="btn btn-danger btn-lg w-100">{{ __('ui.reject') }}</button>
                         </form>
                     </div>
 
@@ -62,8 +62,8 @@
 
             <div class="row my-5 justify-content-center align-items-center">
                 <div class="col-12 text-center">
-                    <h3 class="display-4 text-light">Non ci sono articoli da revisionare</h3>
-                    <a href="{{ route('Home') }}" class="btn btn-primary">Torna alla pagina principale</a>
+                    <h3 class="display-4 text-light">{{ __('ui.no_articles_to_review') }}</h3>
+                    <a href="{{ route('Home') }}" class="btn btn-primary">{{ __('ui.return_to_home') }}</a>
                 </div>
             </div>
 
