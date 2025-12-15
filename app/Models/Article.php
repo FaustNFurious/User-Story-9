@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Image;
 
 class Article extends Model
 {
@@ -65,6 +67,12 @@ class Article extends Model
     public function category() : BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    // Relationship with Image
+    public function images() : HasMany
+    {
+        return $this->hasMany(Image::class);
     }
 
 }

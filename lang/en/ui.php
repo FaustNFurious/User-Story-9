@@ -86,5 +86,8 @@ return [
     'become_revisor' => 'Become Revisor',
     'want_to_become_revisor' => 'Do you want to become a revisor?',
     'want_to_become_revisor_description' => 'By clicking the button below, you will send a request to become a revisor.',
+    'upload_images' => 'Upload Images',
+    'photo_preview' => 'Photo Preview',
+    'remove_img' => 'Remove Image',
 
 ];

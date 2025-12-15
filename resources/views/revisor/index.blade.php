@@ -19,7 +19,16 @@
         @if ($article_to_check)
             <div class="row my-5 justify-content-center align-items-center">
 
-                <div class="col-md-6">
+            @if ($article_to_check->images->count())
+                @foreach ($article_to_check->images as $key => $image)
+                    <div class="col-9 col-md-6">
+                        <img src="{{ Storage::url($image->path) }}" alt="Immagine {{ $key + 1 }} dell'articolo {{ $article_to_check->title }}" class="img-fluid rounded mb-2">
+                    </div>
+                @endforeach
+
+            @else
+            
+                <div class="col-9 col-md-6">
                     <div class="row justify-content-center align-items-center">
                         @for ($i = 0; $i < 6; $i++)
                             <div class="col-12 col-md-4 text-center">
@@ -28,6 +37,8 @@
                         @endfor
                     </div>
                 </div>
+            
+            @endif
 
                 <div class="col-md-4 d-flex flex-column justify-content-between">
 

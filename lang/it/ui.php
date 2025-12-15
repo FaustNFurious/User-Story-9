@@ -86,5 +86,8 @@ return [
     'become_revisor' => 'Diventa Revisore',
     'want_to_become_revisor' => 'Vuoi diventare revisore?',
     'want_to_become_revisor_description' => 'Cliccando sul pulsante sottostante, invierai una richiesta per diventare revisore.',
+    'upload_images' => 'Carica Immagini',
+    'photo_preview' => 'Anteprima Foto',
+    'remove_img' => 'Rimuovi Immagine',
 
 ];
