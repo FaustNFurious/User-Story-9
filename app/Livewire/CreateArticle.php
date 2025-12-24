@@ -2,10 +2,12 @@
 
 namespace App\Livewire;
 
+use App\Jobs\ResizeImage;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Livewire\WithFileUploads;
 
 class CreateArticle extends Component
@@ -48,10 +50,12 @@ class CreateArticle extends Component
         // Gestione delle immagini
         if (count($this->images) > 0) {
             foreach ($this->images as $image) {
-                $this->article->images()->create([
-                    'path' => $image->store('articles', 'public')
-                ]);
+                $newFileName = "articles/{$this->article->id}";
+                $newImage = $this->article->images()->create(['path' => $image->store($newFileName, 'public')]);
+                dispatch(new ResizeImage($newImage->path, 300, 300));
             }
+            // Pulizia della cartella temporanea
+            File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
 
         // Redirect alla dashboard con messaggio di successo

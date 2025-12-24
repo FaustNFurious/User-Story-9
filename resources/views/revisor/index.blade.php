@@ -22,7 +22,7 @@
             @if ($article_to_check->images->count())
                 @foreach ($article_to_check->images as $key => $image)
                     <div class="col-9 col-md-6">
-                        <img src="{{ Storage::url($image->path) }}" alt="Immagine {{ $key + 1 }} dell'articolo {{ $article_to_check->title }}" class="img-fluid rounded mb-2">
+                        <img src="{{ $image->getUrl(300, 300) }}" alt="Immagine {{ $key + 1 }} dell'articolo {{ $article_to_check->title }}" class="img-fluid rounded mb-2">
                     </div>
                 @endforeach
 
