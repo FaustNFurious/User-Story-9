@@ -89,5 +89,6 @@ return [
     'upload_images' => 'Carica Immagini',
     'photo_preview' => 'Anteprima Foto',
     'remove_img' => 'Rimuovi Immagine',
+    
 
 ];

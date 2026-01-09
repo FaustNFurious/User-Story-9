@@ -35,6 +35,18 @@ class Image extends Model
         return self::getUrlByFilePath($this->path, $w, $h);
     }
 
+
+    /*  Il metodo casts() fornito da laravel consente di fare il casting: il casting in Laravel è un processo di conversione automatica dei dati tra
+        formati diversi. Viene utilizzato principalmente per convertire i valori memorizzati nel database in tipi di dati PHP più adatti per l'utilizzo nelle
+        applicazioni Laravel. Questo semplifica la gestione e la manipolazione dei dati all'interno del framework.
+        In questo caso stiamo facendo il casting della colonna labels in array. */
+    protected function casts(): array
+    {
+        return [
+            'labels' => 'array'
+        ];
+    }
+
     public function article() : BelongsTo
     {
         return $this->belongsTo(Article::class);
