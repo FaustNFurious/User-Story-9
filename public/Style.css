@@ -9,23 +9,13 @@ body {
     /* Spazio per navbar fixed-top */
     padding-top: 4rem;
     
-    /* Stop scroll oltre il contenuto - trackpad incluso */
-    overscroll-behavior: none;
     overscroll-behavior-y: contain;
     overflow-x: hidden;
 }
 
-/* Limita container principale per evitare scroll extra */
-body > * {
-    overscroll-behavior: contain;
-}
-
-/* Stop scroll definitivo - anche per trackpad Mac */
 html {
-    overflow-y: scroll;
     scroll-behavior: smooth;
-    height: 100%;
-    overscroll-behavior-y: none;
+    overscroll-behavior-y: contain;
 }
 
 /* Spazio per il main - stacca footer dal contenuto */
